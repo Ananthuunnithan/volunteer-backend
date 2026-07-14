@@ -34,6 +34,10 @@ const VolunteerEntry = mongoose.model("VolunteerEntry", new mongoose.Schema(
     })
 );
 
+app.get("/view",async(request,response)=>{
+    const Volunteer=await VolunteerEntry.find()
+    response.json(Volunteer)
+})
 
 app.listen(3000, (request, response) => {
     console.log("Server Connected")
